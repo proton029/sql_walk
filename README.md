@@ -10,11 +10,11 @@
                             );`=> create a table 
 - `DROP TABLE tablename;` => to delete a table 
 
--`INSERT INTO table_name(column_name) VALUES (data);` => to insert into a column
+- `INSERT INTO table_name(column_name) VALUES (data);` => to insert into a column
 
--`select * from tablename;` => to view all the table row data
+- `select * from tablename;` => to view all the table row data
 
--`insert into table_name
+- `insert into table_name
                          (column_name, column_name)
                          values (value, value),
                                  (value, value)
