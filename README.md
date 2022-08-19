@@ -20,3 +20,21 @@
                                  (value, value)
                                 (value, value)
                                 (value, value);`  => to insert multiple values
+                                
+- To insert quotes inside of inserted values `'This text has \'quotes\' in it'`
+
+- `show warnings` to see what the warning for a particular query was.
+
+- `set sql_mode=''`; to supress the warnings
+- `CREATE TABLE cats3
+  (
+    name VARCHAR(20) DEFAULT 'no name provided',
+    age INT DEFAULT 99
+  );` setting a default value when no value is passed to a column.
+
+- `CREATE TABLE cats4
+  (
+    name VARCHAR(20) NOT NULL DEFAULT 'unnamed',
+    age INT NOT NULL DEFAULT 99
+  );` combining default and not null 
+
