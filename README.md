@@ -25,7 +25,7 @@
 
 - `show warnings` to see what the warning for a particular query was.
 
-- `set sql_mode=''`; to supress the warnings
+- `set sql_mode='';` to supress the warnings
 - `CREATE TABLE cats3
   (
     name VARCHAR(20) DEFAULT 'no name provided',
@@ -38,3 +38,24 @@
     age INT NOT NULL DEFAULT 99
   );` combining default and not null 
 
+- ```  
+          CREATE TABLE unique_cats
+                    (
+                      cat_id INT NOT NULL,
+                      name VARCHAR(100),
+                      age INT,
+                      PRIMARY KEY (cat_id)
+                    );
+  ```
+  => setting a field as primary key
+  
+ - ```
+    CREATE TABLE unique_cats2 (
+    cat_id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(100),
+    age INT,
+    PRIMARY KEY (cat_id)
+    );
+    ```
+    => adding  auto increment
+    
