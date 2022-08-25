@@ -1,5 +1,6 @@
 # sql_walk
 
+- SQL is case **INSENSITIVE**
 - `show databases;` => to show the databases present
 - `use databaseName;` => to use a DB
 - `desc tablename;` => to show the description of a table
@@ -39,14 +40,14 @@
   );` combining default and not null 
 
 - ```  
-    CREATE TABLE unique_cats
-              (
-                cat_id INT NOT NULL,
-                name VARCHAR(100),
-                age INT,
-                PRIMARY KEY (cat_id)
-              );
-     OR
+  CREATE TABLE unique_cats
+            (
+              cat_id INT NOT NULL,
+              name VARCHAR(100),
+              age INT,
+              PRIMARY KEY (cat_id)
+            );
+     **OR**
     
     CREATE TABLE employees (
     id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
@@ -69,18 +70,28 @@
     ```
     => adding  auto increment
     
-    ------------------------------
-    
-    
-    # **CRUD OPERATIONS**
-    ------------------------------
-    
-    - We have already discussed the Insert into method previously.
-    
-    - We have already discussed the `Select * from tableName`. Here the '*' Reads all the columns fromt the table specified But also we can specify which column we           want like `select name from cats` or `select name, place, breed from cats`. Note that the columns displayed will be in the order one specifies in the select           command.
-    
-    - We can be more specific with the ***Where*** clause `select * from cats where cat_id=2` will fetch all column data where cat_id field equals 2 
-      **OR**
-      `Select name, breed from cats where place='kollam'`
+  ------------------------------
+
+
+  # **CRUD OPERATIONS**
+  ------------------------------
+
+  - We have already discussed the Insert into method previously.
+
+  - We have already discussed the `Select * from tableName`. Here the '*' Reads all the columns fromt the table specified But also we can specify which column we           want like `select name from cats` or `select name, place, breed from cats`. Note that the columns displayed will be in the order one specifies in the select           command.
+
+  - We can be more specific with the ***Where*** clause `select * from cats where cat_id=2` will fetch all column data where cat_id field equals 2 
+    **OR**
+    `Select name, breed from cats where place='kollam'`
+
+  - **Aliases** are a useful way to change the way the data is displayed to the user. `select name as dogsName from dogs` with display the name column as 'dogsName'
+    but nothing will be changed in the actual table. It is just for users convinience.
+
+  - The **Update** command lets you update the data in the table. A good rule of thumb says that we must use the select statement to target the data first to verify
+    whether it is returning the data we want and then go for updating the data.`UPDATE cats SET breed='Shorthair' WHERE breed='Tabby'; `. Here 'cats' is the table         name and **SET** is used to update the column 'breed'.
+
+  - **Delete** To delete and entry from the table `DELETE FROM cats WHERE name='Egg';`. **Note** that `DELETE FROM CATS` will delete all rows in table 'CATS'.
+  
+  - Note that we should always target the data first using the select statement before going to delete it.
     
     
