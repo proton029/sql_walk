@@ -39,13 +39,13 @@
   );` combining default and not null 
 
 - ```  
-          CREATE TABLE unique_cats
-                    (
-                      cat_id INT NOT NULL,
-                      name VARCHAR(100),
-                      age INT,
-                      PRIMARY KEY (cat_id)
-                    );
+    CREATE TABLE unique_cats
+              (
+                cat_id INT NOT NULL,
+                name VARCHAR(100),
+                age INT,
+                PRIMARY KEY (cat_id)
+              );
      OR
     
     CREATE TABLE employees (
