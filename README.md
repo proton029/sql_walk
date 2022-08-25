@@ -69,3 +69,18 @@
     ```
     => adding  auto increment
     
+    ------------------------------
+    
+    
+    # **CRUD OPERATIONS**
+    ------------------------------
+    
+    - We have already discussed the Insert into method previously.
+    
+    - We have already discussed the `Select * from tableName`. Here the '*' Reads all the columns fromt the table specified But also we can specify which column we           want like `select name from cats` or `select name, place, breed from cats`. Note that the columns displayed will be in the order one specifies in the select           command.
+    
+    - We can be more specific with the ***Where*** clause `select * from cats where cat_id=2` will fetch all column data where cat_id field equals 2 
+      **OR**
+      `Select name, breed from cats where place='kollam'`
+    
+    
