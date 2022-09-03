@@ -93,5 +93,37 @@
   - **Delete** To delete and entry from the table `DELETE FROM cats WHERE name='Egg';`. **Note** that `DELETE FROM CATS` will delete all rows in table 'CATS'.
   
   - Note that we should always target the data first using the select statement before going to delete it.
+ 
+ 
+## **String Functions**
+
+- **concat** used to combine data for cleaner output. Basically takes data from columns and concatenate row wise. 
+  ```
+        SELECT
+        CONCAT(author_fname, ' ', author_lname)
+        FROM books;
+
+      SELECT
+        CONCAT(author_fname, ' ', author_lname)
+        AS 'full name'
+      FROM books;
+
+      SELECT author_fname AS first, author_lname AS last, 
+        CONCAT(author_fname, ' ', author_lname) AS full
+      FROM books;
+
+      SELECT author_fname AS first, author_lname AS last, 
+        CONCAT(author_fname, ', ', author_lname) AS full
+      FROM books;
+
+      SELECT CONCAT(title, '-', author_fname, '-', author_lname) FROM books;
+
+      SELECT 
+          CONCAT_WS(' - ', title, author_fname, author_lname) 
+      FROM books;
+  ```
+-  **CONCAT_WS** is used to add separators. Useful when there are lot of columns to concat.
+
+- **SUBSTRING** : to work with parts of a string. 
     
     
