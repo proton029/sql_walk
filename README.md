@@ -124,6 +124,55 @@
   ```
 -  **CONCAT_WS** is used to add separators. Useful when there are lot of columns to concat.
 
-- **SUBSTRING** : to work with parts of a string. 
+- **SUBSTRING** : to work with parts of a sring. 
+  - ` select substring('Hello Mom and Dad',1, 4 );`  note that the index starts at 1 so the result of this query is "hell".
+  - In **SUBSTRING** if we give only one value as index then the query will start at that index and returns the rest of the string
+    i.e. ` select substring('Hello Mom and Dad', 4 );` will give "lo M".
+  - If we give a negative number then the query will return a substring starting from its end and going reverse direction and fetches the string i.e.
+    ` select substring('Hello Mom and Dad', -3 );` will return "Dad"
+  - ` SELECT SUBSTRING(title, 1, 10) FROM books;` will return the substring of the entries in "title" column in books table
+  -  ``` 
+      SELECT CONCAT
+        (
+          SUBSTRING(title, 1, 10),
+          '...'
+        )
+      FROM books;
+     ```
+      => this will run the **Subquery** first and then the ***Outer query*** effectivey taking the substring and concatenating "... "    
     
+ - **REPLACE**
+  
+  - Used to replace parts of strings. Ex: ` SELECT REPLACE(title, 'e ', '3') FROM books;`
+  
+ - **REVERSE**
+  
+  - Reverses a string. Ex ` SELECT REVERSE(author_fname) FROM books;`
+ 
+ - **CHAR_LENGTH**
+  
+  - Returns the length of the string.
+    Examples...
+    ```
+      SELECT CHAR_LENGTH('Hello World');
+ 
+      SELECT author_lname, CHAR_LENGTH(author_lname) AS 'length' FROM books;
+
+      SELECT CONCAT(author_lname, ' is ', CHAR_LENGTH(author_lname), ' characters long') FROM books;
+      
+    ```
+ 
+ - **UPPER() and LOWER()**
+  - to change a string's case, Examples..
+  ```
+    SELECT UPPER('Hello World');
+ 
+    SELECT LOWER('Hello World');
+
+    SELECT UPPER(title) FROM books;
+
+    SELECT CONCAT('MY FAVORITE BOOK IS ', UPPER(title)) FROM books;
+
+    SELECT CONCAT('MY FAVORITE BOOK IS ', LOWER(title)) FROM books;
     
+  ```
