@@ -176,3 +176,4 @@
     SELECT CONCAT('MY FAVORITE BOOK IS ', LOWER(title)) FROM books;
     
   ```
+  - **Note:** UPPER only takes one argument and CONCAT takes two or more arguments, so they can't be switched in that way.
