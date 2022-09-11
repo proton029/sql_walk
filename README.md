@@ -24,7 +24,7 @@
                                 
 - To insert quotes inside of inserted values `'This text has \'quotes\' in it'`
 
-- `show warnings` to see what the warning for a particular query was.
+- `show warnings` to see the warnings for a particular query.
 
 - `set sql_mode='';` to supress the warnings
 - `CREATE TABLE cats3
@@ -143,16 +143,16 @@
     
  - **REPLACE**
   
-  - Used to replace parts of strings. Ex: ` SELECT REPLACE(title, 'e ', '3') FROM books;`
+    - Used to replace parts of strings. Ex: ` SELECT REPLACE(title, 'e ', '3') FROM books;`
   
  - **REVERSE**
   
-  - Reverses a string. Ex ` SELECT REVERSE(author_fname) FROM books;`
+    - Reverses a string. Ex ` SELECT REVERSE(author_fname) FROM books;`
  
  - **CHAR_LENGTH**
   
-  - Returns the length of the string.
-    Examples...
+    - Returns the length of the string.
+      Examples...
     ```
       SELECT CHAR_LENGTH('Hello World');
  
@@ -163,17 +163,78 @@
     ```
  
  - **UPPER() and LOWER()**
-  - to change a string's case, Examples..
-  ```
-    SELECT UPPER('Hello World');
+    - to change a string's case, Examples..
+    ```
+      SELECT UPPER('Hello World');
+
+      SELECT LOWER('Hello World');
+
+      SELECT UPPER(title) FROM books;
+
+      SELECT CONCAT('MY FAVORITE BOOK IS ', UPPER(title)) FROM books;
+
+      SELECT CONCAT('MY FAVORITE BOOK IS ', LOWER(title)) FROM books;
+
+    ```
+    - **Note:** UPPER only takes one argument and CONCAT takes two or more arguments, so they can't be switched in that way.
+  
+
+## Refining selection statements
+
+- **DISTINCT** is used to select unique items in a column(s) and this keyword is used just after the select statement.
+    Run the following to see how DISTINCT can be made useful
+    ```
+      SELECT author_lname FROM books;
  
-    SELECT LOWER('Hello World');
+      SELECT DISTINCT author_lname FROM books;
 
-    SELECT UPPER(title) FROM books;
+      SELECT author_fname, author_lname FROM books;
 
-    SELECT CONCAT('MY FAVORITE BOOK IS ', UPPER(title)) FROM books;
+      SELECT DISTINCT CONCAT(author_fname,' ', author_lname) FROM books; // this concats the two columns and give the unique among them
 
-    SELECT CONCAT('MY FAVORITE BOOK IS ', LOWER(title)) FROM books;
+      SELECT DISTINCT author_fname, author_lname FROM books; // this works on the rows and donot concat
     
-  ```
-  - **Note:** UPPER only takes one argument and CONCAT takes two or more arguments, so they can't be switched in that way.
+    ```
+- **ORDER BY** is used to sort the data. works for both Numbers and alphabets.
+
+    ```
+      SELECT author_lname FROM books;
+
+      SELECT author_lname FROM books ORDER BY author_lname;
+
+      SELECT title FROM books;
+
+      SELECT title FROM books ORDER BY title;
+      SELECT author_lname FROM books ORDER BY author_lname DESC; // to sort decending
+
+      SELECT released_year FROM books;
+
+      SELECT released_year FROM books ORDER BY released_year;
+
+      SELECT released_year FROM books ORDER BY released_year DESC;
+
+      SELECT released_year FROM books ORDER BY released_year ASC;
+
+      SELECT title, released_year, pages FROM books ORDER BY released_year;
+
+      SELECT title, pages FROM books ORDER BY released_year;
+
+      SELECT title, author_fname, author_lname 
+      FROM books ORDER BY 2;                      // is a short cut to ORDER BY "author_fname"
+
+      SELECT title, author_fname, author_lname 
+      FROM books ORDER BY 3;                      // is a short cut to ORDER BY "author_lname"
+
+      SELECT title, author_fname, author_lname 
+      FROM books ORDER BY 1;                      // is a short cut to ORDER BY "title"
+
+      SELECT title, author_fname, author_lname 
+      FROM books ORDER BY 1 DESC;
+
+      SELECT author_lname, title
+      FROM books ORDER BY 2;
+
+      SELECT author_fname, author_lname FROM books 
+      ORDER BY author_lname, author_fname;
+    
+    ```
