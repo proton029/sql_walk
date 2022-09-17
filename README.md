@@ -238,3 +238,14 @@
       ORDER BY author_lname, author_fname;
     
     ```
+ - **LIMIT** : Allows us to specify a limit of how many results are to be returned. The limit condition, in most cases is added at the end of a query.
+    - ` SELECT title FROM books LIMIT 3;` OR `SELECT title FROM books LIMIT 0,3;`
+    
+    - Specifying a huge number as ending point will fetch all data till the end.
+    
+ - **LIKE** : Basically used for better searching or searching for patterns. ` SELECT title, author_fname FROM books WHERE author_fname LIKE '%da%';`
+              Here the query is setup to search for 'da' patterns in author_fname.
+    - we can use more wild cards such as the '_' (underscore). We can use four underscores(____) to specify that we are looking for a single character.
+    - `SELECT title, stock_quantity FROM books WHERE stock_quantity LIKE '____';` will return rows with stock quantity having 4 digits or characters.
+    - If We want to search for data that has '%' in it then '%%%' in LIKE wont work. We need to use '\' `SELECT title FROM books WHERE title LIKE               '%\%%'`. Same for searching Underscores `...LIKE '%\_%'`.
+    
