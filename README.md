@@ -249,3 +249,47 @@
     - `SELECT title, stock_quantity FROM books WHERE stock_quantity LIKE '____';` will return rows with stock quantity having 4 digits or characters.
     - If We want to search for data that has '%' in it then '%%%' in LIKE wont work. We need to use '\' `SELECT title FROM books WHERE title LIKE               '%\%%'`. Same for searching Underscores `...LIKE '%\_%'`.
     
+## Aggregate Functions
+
+- **COUNT** : To count the entries.
+  ```
+  SELECT COUNT(*) FROM books;
+ 
+  SELECT COUNT(author_fname) FROM books;
+ 
+  SELECT COUNT(DISTINCT author_fname) FROM books;
+ 
+  SELECT COUNT(DISTINCT author_lname) FROM books;
+ 
+  SELECT COUNT(DISTINCT author_lname, author_fname) FROM books;
+  
+  SELECT COUNT(*) FROM books WHERE title LIKE '%the%';
+  ```
+ - **GROUP BY**: Summarizes or aggregates identical data into single rows. Example: is in our books table we can write a query to group the books in the                  year in which they were released.
+    For understanding test out the results of below queries
+    ```
+      SELECT title, author_lname FROM books;
+ 
+      SELECT title, author_lname FROM books
+      GROUP BY author_lname;
+ 
+      SELECT author_lname, COUNT(*) 
+      FROM books GROUP BY author_lname;
+ 
+ 
+      SELECT title, author_fname, author_lname FROM books;
+
+      SELECT title, author_fname, author_lname FROM books GROUP BY author_lname;
+
+      SELECT author_fname, author_lname, COUNT(*) FROM books GROUP BY author_lname;
+
+      SELECT author_fname, author_lname, COUNT(*) FROM books GROUP BY author_lname, author_fname;
+
+      SELECT released_year FROM books;
+
+      SELECT released_year, COUNT(*) FROM books GROUP BY released_year;
+
+      SELECT CONCAT('In ', released_year, ' ', COUNT(*), ' book(s) released') AS year FROM books GROUP BY released_year;
+    
+    ```
+- **MIN and MAX** : To find max/min entries in a column `SELECT MIN(released_year) FROM books;`
