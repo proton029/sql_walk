@@ -313,3 +313,4 @@
         author_lname,
         author_fname;
   ```
+- **AVG**: Similar to sum, it returns the avg value of a column `SELECT AVG(released_year) FROM books;`
