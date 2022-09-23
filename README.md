@@ -293,3 +293,13 @@
     
     ```
 - **MIN and MAX** : To find max/min entries in a column `SELECT MIN(released_year) FROM books;`
+- **The problem with MIN and MAX**: If we run the query `SELECT MAX(pages), title from books;` The result will be wrong because the max pages book wont       be aligned to the book title column that is being displayed. That is the query just picks up the max pages and the first title name of the book in       the table. So an obvious solution will be to use SubQueries `SELECT * FROM books WHERE pages = (SELECT Min(pages) FROM books); ` OR `SELECT * FROM       books ORDER BY pages ASC LIMIT 1;`
+- **MIN & MAX with GROUP BY**: `SELECT author_fname, author_lname, Min(released_year) FROM   books GROUP  BY author_lname, author_fname;` Here the Group     by command will take the firstname and lastname , join it and conider it as a group and fetches items mentioned in the select query. Below is a           cleaner output query with the use of aliases.
+    ```
+      SELECT
+      CONCAT(author_fname, ' ', author_lname) AS author,
+      MAX(pages) AS 'longest book'
+      FROM books
+      GROUP BY author_lname,
+             author_fname;
+    ```
