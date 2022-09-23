@@ -303,3 +303,13 @@
       GROUP BY author_lname,
              author_fname;
     ```
+- **SUM** Function `SELECT SUM(pages)FROM books;` Takes the sum of all pages from books table.
+  ```
+    SELECT author_fname,
+       author_lname,
+       Sum(released_year)
+    FROM books
+    GROUP BY
+        author_lname,
+        author_fname;
+  ```
