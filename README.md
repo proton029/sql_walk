@@ -177,7 +177,8 @@
 
     ```
     - **Note:** UPPER only takes one argument and CONCAT takes two or more arguments, so they can't be switched in that way.
-  
+    - **LEFT & RIGHT** `SELECT LEFT('SQL Tutorial', 3) AS ExtractString;` returns SQL as output i.e. starting from left of the string take 3 characters.
+        RIGHT us similar to LEFT but starts from the right side of the string. 
 
 ## Refining selection statements
 
