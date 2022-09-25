@@ -315,3 +315,14 @@
         author_fname;
   ```
 - **AVG**: Similar to sum, it returns the avg value of a column `SELECT AVG(released_year) FROM books;`
+
+- **DATE, TIME & DATETIME**: DATE will take on only dates and no time(YYYY-MM-DD) format. TIME, similar to DATE stores only time(HH:MM:SS)format.             DATETIME  stores both(YYYY-MM-DD HH:MM:SS).
+    ```
+      CREATE TABLE people (name VARCHAR(100), birthdate DATE, birthtime TIME, birthdt DATETIME);
+ 
+      INSERT INTO people (name, birthdate, birthtime, birthdt)
+      VALUES('Padma', '1983-11-11', '10:07:35', '1983-11-11 10:07:35');
+    ```
+- **CURDATE, CURTIME and NOW**: Gives current date, time and current datetime respectively.
+- Formatting Dates=> **(DAY(), DAYNAME(), DAYOFWEEK(),DAYOFYEAR()** 
+- we can do the above with wildcards `SELECT DATE_FORMAT(birthdt, '%m/%d/%Y') FROM people;`
