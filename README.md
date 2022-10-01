@@ -326,3 +326,12 @@
 - **CURDATE, CURTIME and NOW**: Gives current date, time and current datetime respectively.
 - Formatting Dates=> **(DAY(), DAYNAME(), DAYOFWEEK(),DAYOFYEAR()** 
 - we can do the above with wildcards `SELECT DATE_FORMAT(birthdt, '%m/%d/%Y') FROM people;`
+
+### Date Math..
+
+- We can do some interesting math on Dates like "how long ago" or " how many years or days " from a particular date.
+- The **DATEDIFF()** returns the differnce in days of two date arguments.
+- Similarly DATE_ADD() will add a given interval to the specified date.
+- Rather than Using DATE_ADD() or DATE_SUB() to add in INTERVLS we can directly use the +/- alongside INTERVAL  ex:`SELECT birthdt, birthdt + INTERVAL 1   MONTH FROM people;`
+- **TIMESTAMPS**:  It is similar to DATETIME but the major difference is that TIMESTAMP works from 1970 to 2038 where as DATETIME goes from 0000 to                           9999th year but TIMESTAMP consumes less bytes of memory than DATETIME.
+
