@@ -340,4 +340,4 @@
 - Right now we do not have any way of doing operation like select all from table where valus is not this. so in order to do that we us the '!=".
   `SELECT * FROM Customers where PostalCode != 12209`
 - **Not Like** works the opposite of **Like** `SELECT * from Customers where Country not like "Me%" `.
-
+- Similarly we have **>, >=, <,<=**
