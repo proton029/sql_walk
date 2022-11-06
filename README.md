@@ -335,3 +335,9 @@
 - Rather than Using DATE_ADD() or DATE_SUB() to add in INTERVLS we can directly use the +/- alongside INTERVAL  ex:`SELECT birthdt, birthdt + INTERVAL 1   MONTH FROM people;`
 - **TIMESTAMPS**:  It is similar to DATETIME but the major difference is that TIMESTAMP works from 1970 to 2038 where as DATETIME goes from 0000 to                           9999th year but TIMESTAMP consumes less bytes of memory than DATETIME.
 
+## LOGICAL OPERATORS
+
+- Right now we do not have any way of doing operation like select all from table where valus is not this. so in order to do that we us the '!=".
+  `SELECT * FROM Customers where PostalCode != 12209`
+- **Not Like** works the opposite of **Like** `SELECT * from Customers where Country not like "Me%" `.
+
