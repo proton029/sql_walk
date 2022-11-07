@@ -363,4 +363,4 @@
     AND CAST('2000-01-01' AS DATETIME);
   ```
   
-
+- **IN** and **Not IN**
