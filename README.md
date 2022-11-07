@@ -341,3 +341,26 @@
   `SELECT * FROM Customers where PostalCode != 12209`
 - **Not Like** works the opposite of **Like** `SELECT * from Customers where Country not like "Me%" `.
 - Similarly we have **>, >=, <,<=**
+- **Logical AND(&&, AND)** 
+    ```
+    SELECT  
+    title, 
+    author_lname, 
+    released_year FROM books
+    WHERE author_lname='Eggers' 
+    AND released_year > 2010;
+    ```
+- **Logical OR(||, OR)** works the similar way to AND.
+- **BETWEEN** allows use to select based of an upper and lower range `SELECT title, released_year FROM books WHERE released_year BETWEEN 2004 AND 2015;`
+  notice the **AND** when using **Between** is always used. When using between with date or date time use **CAST()**
+  ```
+  SELECT 
+    name, 
+    birthdt 
+  FROM people
+  WHERE 
+    birthdt BETWEEN CAST('1980-01-01' AS DATETIME)
+    AND CAST('2000-01-01' AS DATETIME);
+  ```
+  
+
